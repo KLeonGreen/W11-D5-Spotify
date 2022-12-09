@@ -1,7 +1,7 @@
 import { GET_ALBUMS } from "../actions";
 
 const initialState = {
-  contents: [],
+  content: [],
 };
 
 export const albumReducer = (state = initialState, action) => {
@@ -9,7 +9,7 @@ export const albumReducer = (state = initialState, action) => {
     case GET_ALBUMS:
       return {
         ...state,
-        contents: action.paylaod,
+        content: action.payload,
       };
     default:
       return state;

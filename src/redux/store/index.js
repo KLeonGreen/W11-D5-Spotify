@@ -5,7 +5,8 @@ const bigReducer = combineReducers({
   albums: albumReducer,
   //   artists: artistReducer,
 });
-
-export const store = configureStore({
+const store = configureStore({
   reducer: bigReducer,
 });
+
+export default store;
