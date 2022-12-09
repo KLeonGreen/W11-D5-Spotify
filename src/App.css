@@ -1,0 +1,149 @@
+.overall-container {
+  display: flex;
+}
+
+.player-area {
+  background-color: bisque;
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+}
+
+.main-container {
+  display: flex;
+}
+
+.side-bar {
+  background-color: black;
+  width: 270px;
+  height: 100vh;
+  flex-shrink: 0;
+}
+
+/* // -----NavBar------ */
+
+.logo-container {
+  width: 100%;
+  padding-inline: 30px;
+}
+
+.album-favorites {
+  font-size: 0.9em;
+  overflow: auto;
+  height: 40vh;
+  line-height: 30px;
+}
+
+/* -----Navbar------- */
+
+.display-area {
+  width: 100%;
+  background-image: linear-gradient(
+    180deg,
+    #222222 0%,
+    #1f1f1f 11.64%,
+    #171717 25.66%,
+    #161616 32.94%,
+    #151515 35.98%,
+    #131313 44.89%,
+    #121212 55.22%,
+    #121212 75.34%,
+    #121212 85.45%,
+    rgba(18, 18, 18, 1) 100%
+  );
+}
+
+/* ------Bottom----- */
+
+.bottom-container {
+  display: flex;
+  background-color: #282828;
+  height: 100px;
+  width: 100%;
+  position: fixed;
+  bottom: 0;
+  padding-inline: 30px;
+  color: white;
+  justify-content: space-between;
+  z-index: 1;
+}
+
+.playing {
+  align-items: center;
+}
+
+.player,
+.player-bar {
+  align-items: center;
+}
+
+.player-bar {
+  width: 600px;
+  justify-content: space-evenly;
+}
+
+.progress {
+  width: 500px;
+  height: 5px;
+  background-color: #535353;
+}
+
+.progress-bar {
+  background-color: #ffffff;
+}
+
+.player-icons {
+  width: 250px;
+  justify-content: space-evenly;
+}
+
+.card {
+  padding: 13px;
+  background-color: #232222 !important;
+  border-radius: 8px;
+  color: white;
+  cursor: pointer;
+  transition: 1s;
+}
+.card img:nth-child(2) {
+  border-radius: 8px;
+  box-shadow: 0px 0px 10px -3px black;
+}
+
+.play-on-hover {
+  position: absolute;
+  bottom: 35%;
+  right: 10px;
+  opacity: 0;
+  transition: 0.5s;
+}
+
+.card:hover {
+  background-color: #3d3d3d;
+  transition: 1s;
+}
+.card:hover img {
+  box-shadow: 0px 0px 0px 0px black;
+}
+.card:hover .play-on-hover {
+  bottom: 40%;
+  opacity: 1;
+  transition: 0.5s;
+}
+
+.card-title {
+  color: white;
+  margin: 0;
+  font-size: 1.1em;
+  text-overflow: ellipsis;
+  overflow: hidden;
+  white-space: nowrap;
+}
+.card-text {
+  color: #b3b3b3;
+  text-overflow: ellipsis;
+  overflow: hidden;
+  white-space: nowrap;
+  font-size: 0.9em;
+  margin-block: 5px;
+}
