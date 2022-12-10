@@ -9,8 +9,14 @@ const DisplayerArea = () => {
   const [value, setValue] = useState("");
   const dispatch = useDispatch();
 
+  const search = value ? value : "A";
+
   useEffect(() => {
-    dispatch(getSongs(value));
+    dispatch(getSongs(search));
+  }, []);
+
+  useEffect(() => {
+    dispatch(getSongs(search));
   }, [value]);
 
   console.log(value);
@@ -37,8 +43,8 @@ const DisplayerArea = () => {
 
         {/* <h2 id="title1">Shows you might like</h2> */}
         <Row className="mt-4 mb-5">
-          {albumArray.slice(0, 24).map((album) => (
-            <Albumcard album={album} />
+          {albumArray.slice(0, 12).map((album) => (
+            <Albumcard album={album} key={album.album.id} />
           ))}
         </Row>
       </Container>

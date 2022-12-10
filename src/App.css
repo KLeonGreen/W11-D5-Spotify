@@ -2,6 +2,22 @@
   display: flex;
 }
 
+a {
+  color: rgb(218, 218, 218) !important;
+}
+a:hover {
+  color: rgb(255, 255, 255) !important;
+}
+#NavBar {
+  width: 256px;
+  height: 100vh;
+  left: 0px;
+  top: 0px;
+  background-color: #000000;
+  flex-shrink: 0;
+  z-index: 0;
+}
+
 .player-area {
   background-color: bisque;
   position: absolute;
@@ -13,18 +29,19 @@
   display: flex;
 }
 
-.side-bar {
+/* .side-bar {
   background-color: black;
   width: 270px;
   height: 100vh;
   flex-shrink: 0;
-}
+} */
 
 /* // -----NavBar------ */
 
 .logo-container {
   width: 100%;
-  padding-inline: 30px;
+  /* padding-inline: 30px; */
+  margin-block: 5px;
 }
 
 .album-favorites {
@@ -55,6 +72,32 @@
   overflow: auto;
 }
 
+.nav-icon-size {
+  width: 20px;
+}
+
+#album-to-line {
+  border-bottom: solid 0.5px gray;
+  width: 200px;
+}
+
+.album-favorites {
+  font-size: 0.9em;
+  height: 45vh;
+  line-height: 30px;
+  color: rgb(218, 218, 218);
+  padding-inline-start: 17px;
+  margin-block-end: 20px;
+  text-overflow: ellipsis;
+  overflow: hidden;
+  white-space: nowrap;
+  overflow: auto;
+  cursor: pointer;
+}
+.navbar-song-list:hover {
+  color: rgb(255, 255, 255);
+}
+
 /* ------Bottom----- */
 
 .bottom-container {
@@ -72,6 +115,16 @@
 
 .playing {
   align-items: center;
+  width: 300px;
+  justify-content: space-evenly;
+}
+
+.player {
+  width: 800px;
+}
+
+.other-functions {
+  width: 270px;
 }
 
 .player,
@@ -86,8 +139,14 @@
 
 .progress {
   width: 500px;
-  height: 5px;
+  height: 5px !important;
   background-color: #535353;
+}
+
+.volume-bar {
+  width: 140px;
+  height: 5px;
+  margin-inline-start: 10px;
 }
 
 .progress-bar {
@@ -106,7 +165,7 @@
   color: white;
   cursor: pointer;
   transition: 1s;
-  height: 290px;
+  min-height: 250px;
 }
 .card img:nth-child(2) {
   border-radius: 8px;
@@ -153,4 +212,26 @@
 
 .row {
   row-gap: 30px;
+}
+
+.selected-album {
+  border: solid #434343 5px !important;
+  border-radius: 10px !important;
+}
+
+.playing-image {
+  margin-inline-end: 10px;
+  width: 70px;
+}
+.playing-image img {
+  width: 100%;
+}
+
+.song-title {
+  font-weight: bold;
+  text-overflow: ellipsis;
+  overflow: hidden;
+  white-space: nowrap;
+  width: 190px;
+  margin-inline-end: 10px;
 }

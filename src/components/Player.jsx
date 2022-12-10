@@ -1,19 +1,36 @@
+import { useDispatch, useSelector } from "react-redux";
+import { addTofavorites } from "../redux/actions";
+
 const Player = () => {
+  const dispatch = useDispatch();
+
+  const selectedItem = useSelector((state) => state.selected.content);
+
   return (
     <div className="player-area">
       <div className="bottom-container">
-        <div className="playing d-flex">
-          <div className="playing-image">
-            <img src="./images/playing.png" alt="" />
+        {selectedItem && (
+          <div className="playing d-flex">
+            <div className="playing-image">
+              <img src={selectedItem.album.cover_medium} alt="" />
+            </div>
+            <div className="playing-title">
+              <div className="text-cover-image">
+                <div className="song-title">{selectedItem.album.title}</div>
+                <div className="song-artist">{selectedItem.artist.name}</div>
+              </div>
+            </div>
+            <div>
+              <img
+                src="./icons/green-heart.svg"
+                alt=""
+                onClick={() => {
+                  dispatch(addTofavorites(selectedItem));
+                }}
+              />
+            </div>
           </div>
-          <div className="playing-title">
-            <div>Weekly Motivation</div>
-            <div>Tie up</div>
-          </div>
-          <div>
-            <img src="./icons/green-heart.svg" alt="" />
-          </div>
-        </div>
+        )}
 
         <div className="player d-flex flex-column justify-content-center">
           <div className="player-icons d-flex align-items-center">
@@ -52,7 +69,7 @@ const Player = () => {
             </div>
             <div className="volume d-flex align-items-center">
               <img src="./icons/volume.svg" alt="" />
-              <div className="progress">
+              <div className="progress volume-bar">
                 <div className="progress-bar" role="progressbar" style={{ width: "25%" }} aria-valuenow="25" aria-valuemin="0" aria-valuemax="100"></div>
               </div>
             </div>
