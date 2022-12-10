@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 import { Container, Row, Form, FormControl, Button } from "react-bootstrap";
 import { useDispatch, useSelector } from "react-redux";
 import { getSongs } from "../redux/actions";
+import ArtistCard from "./ArtistCard";
 import Albumcard from "./Albumcard";
 
 const DisplayerArea = () => {
@@ -41,10 +42,16 @@ const DisplayerArea = () => {
           />
         </Form>
 
-        {/* <h2 id="title1">Shows you might like</h2> */}
-        <Row className="mt-4 mb-5">
+        <h2 id="title1">Shows you might like</h2>
+        <Row className="mt-4 mb-2">
           {albumArray.slice(0, 12).map((album) => (
             <Albumcard album={album} key={album.album.id} />
+          ))}
+        </Row>
+        <h2 id="title1">Shows you might like</h2>
+        <Row className="artist-row">
+          {albumArray.slice(0, 12).map((album) => (
+            <ArtistCard album={album} key={album.album.id} />
           ))}
         </Row>
       </Container>
