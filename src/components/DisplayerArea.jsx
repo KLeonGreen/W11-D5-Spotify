@@ -6,8 +6,7 @@ import ArtistCard from "./ArtistCard";
 import Albumcard from "./Albumcard";
 
 const DisplayerArea = () => {
-  const albumArrayAll = useSelector((state) => state.albums.content);
-  const albumArray = [...new Set(albumArrayAll)];
+  const albumArray = useSelector((state) => state.albums.content);
   const [value, setValue] = useState("");
   const dispatch = useDispatch();
 
@@ -20,8 +19,6 @@ const DisplayerArea = () => {
   useEffect(() => {
     dispatch(getSongs(search));
   }, [value]);
-
-  console.log(albumArray);
 
   // useEffect(() => {
   //   setArray(albumArray);

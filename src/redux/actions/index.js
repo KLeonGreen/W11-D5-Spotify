@@ -12,7 +12,7 @@ export const getSongs = (search) => {
         type: GET_ALBUMS,
         payload: albumsArray,
       });
-      console.log(data.data);
+      //console.log(data.data);
     }
   };
 };
@@ -23,7 +23,7 @@ export const setSelected = (song) => {
       type: SET_SELECTED,
       payload: song,
     });
-    console.log(song);
+    //console.log(song);
   };
 };
 
@@ -34,6 +34,6 @@ export const addTofavorites = (clicked) => {
       payload: clicked,
     });
 
-    console.log(clicked);
+    //console.log(clicked);
   };
 };

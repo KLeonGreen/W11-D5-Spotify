@@ -270,3 +270,8 @@ a:hover {
   transform: scale(1.09);
   transition: 1s;
 }
+
+.liked {
+  position: absolute;
+  right: 10px;
+}
