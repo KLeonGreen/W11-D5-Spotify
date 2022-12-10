@@ -30,7 +30,7 @@ const Albumcard = ({ album }) => {
           <Card.Body>
             <h6 className="card-title">{album.album.title}</h6>
             <p className="card-text">{album.artist.name}</p>
-            <p className="card-tex4t">{album.album.type}</p>
+            <p className="card-text">{album.album.type}</p>
           </Card.Body>
         </Card>
       </Col>

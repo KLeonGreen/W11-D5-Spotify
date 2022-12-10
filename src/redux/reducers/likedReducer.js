@@ -9,7 +9,8 @@ export const likedReducer = (state = initialState, action) => {
     case ADD_FAVORITES:
       return {
         ...state,
-        content: [...state.content, action.payload],
+        //content: [...state.content, action.payload],
+        content: [...new Set([...state.content, action.payload])],
       };
 
     default:

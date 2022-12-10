@@ -8,7 +8,7 @@ body {
 }
 
 a {
-  color: rgb(218, 218, 218) !important;
+  color: rgb(165, 165, 165) !important;
 }
 a:hover {
   color: rgb(255, 255, 255) !important;
@@ -49,13 +49,6 @@ a:hover {
   margin-block: 5px;
 }
 
-.album-favorites {
-  font-size: 0.9em;
-  overflow: auto;
-  height: 40vh;
-  line-height: 30px;
-}
-
 /* -----Navbar------- */
 
 .display-area {
@@ -90,7 +83,7 @@ a:hover {
   font-size: 0.9em;
   height: 45vh;
   line-height: 30px;
-  color: rgb(218, 218, 218);
+  color: rgb(165, 165, 165);
   padding-inline-start: 17px;
   margin-block-end: 20px;
   text-overflow: ellipsis;
@@ -98,9 +91,16 @@ a:hover {
   white-space: nowrap;
   overflow: auto;
   cursor: pointer;
+  width: 230px;
 }
 .navbar-song-list:hover {
   color: rgb(255, 255, 255);
+}
+
+.navbar-song-list {
+  text-overflow: ellipsis;
+  overflow: hidden;
+  white-space: nowrap;
 }
 
 /* ------Bottom----- */
@@ -166,15 +166,16 @@ a:hover {
 .card {
   padding: 13px;
   background-color: #232222 !important;
-  border-radius: 8px;
+  border-radius: 10px !important;
   color: white;
   cursor: pointer;
   transition: 1s;
-  min-height: 250px;
+  padding-block-end: 0;
 }
 .card img:nth-child(2) {
   border-radius: 8px;
-  box-shadow: 0px 0px 10px -3px black;
+  box-shadow: 0px 0px 13px 1px rgb(0 0 0);
+  transition: 1s;
 }
 
 .play-on-hover {
@@ -183,19 +184,27 @@ a:hover {
   right: 10px;
   opacity: 0;
   transition: 0.5s;
+  z-index: 1;
 }
 
 .card:hover {
-  background-color: #3d3d3d;
+  background-color: #424242 !important;
+  /* //padding: 1px; */
   transition: 1s;
 }
-.card:hover img {
-  box-shadow: 0px 0px 0px 0px black;
+.card:hover img:nth-child(2) {
+  box-shadow: 0px 0px 13px 1px rgb(0 0 0);
+  transform: scale(1.07);
+  transition: 1s;
 }
 .card:hover .play-on-hover {
   bottom: 40%;
   opacity: 1;
   transition: 0.5s;
+}
+.card-body {
+  padding-block-end: 0px;
+  padding-inline-start: 0 !important;
 }
 
 .card-title {
@@ -213,6 +222,7 @@ a:hover {
   white-space: nowrap;
   font-size: 0.9em;
   margin-block: 5px;
+  text-transform: capitalize;
 }
 
 .row {
@@ -253,4 +263,10 @@ a:hover {
 
 .artist-image-cover {
   border-radius: 50% !important;
+}
+
+.card:hover .artist-image-cover {
+  box-shadow: 0px 0px 13px 1px rgb(0 0 0);
+  transform: scale(1.09);
+  transition: 1s;
 }
