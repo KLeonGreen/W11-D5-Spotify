@@ -7,7 +7,14 @@ const Player = () => {
   const [filter, setFilter] = useState("");
 
   const selectedItem = useSelector((state) => state.selected.content);
-  const iconColor = useSelector((state) => state.selected.iconColor);
+  const iconColor = useSelector((state) => state.liked.heartColor);
+  const Liked = useSelector((state) => state.liked.content);
+
+  const checkLiked = (alb) => {
+    Liked.map((song) => {
+      return song.id === alb.id ? true : false;
+    });
+  };
 
   return (
     <div className="player-area">
@@ -26,7 +33,8 @@ const Player = () => {
             <div>
               <img
                 id="heart"
-                className={iconColor ? "filter" : ""}
+                className={checkLiked(selectedItem) || iconColor ? "filter" : ""}
+                //className={iconColor ? "filter" : ""}
                 style={{ cursor: "pointer" }}
                 src="./icons/heart.svg"
                 alt=""

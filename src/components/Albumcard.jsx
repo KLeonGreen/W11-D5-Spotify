@@ -4,11 +4,19 @@ import { useDispatch, useSelector } from "react-redux";
 import { setSelected } from "../redux/actions";
 
 const Albumcard = ({ album, song }) => {
-  const isLiked = useSelector((state) => state.albums.isLiked);
+  const isLiked = useSelector((state) => state.liked.isLiked);
   const Liked = useSelector((state) => state.liked.content);
   const AlbumArray = useSelector((state) => state.albums.content);
+  const [likedSong, setLikedSong] = useState();
 
   const dispatch = useDispatch();
+
+  const checkGreenHeart = (alb) => {
+    Liked.map((song) => {
+      return song.id === alb.id ? "true" : "false";
+      console.log(song.id === alb.id);
+    });
+  };
 
   return (
     <>
@@ -16,7 +24,7 @@ const Albumcard = ({ album, song }) => {
         <Card
           className="card"
           onClick={() => {
-            dispatch(setSelected(album));
+            dispatch(setSelected(album, isLiked));
           }}
         >
           <div className="play-on-hover">

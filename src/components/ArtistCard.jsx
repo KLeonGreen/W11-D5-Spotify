@@ -21,7 +21,6 @@ const ArtistCard = ({ album, status }) => {
             dispatch(setSelected(album));
             changeStyle();
           }}
-          //className={style}
         >
           <div className="play-on-hover">
             <img src="./icons/Menu/PlayOnHover.svg" alt="" />

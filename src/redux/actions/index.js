@@ -1,7 +1,8 @@
 export const GET_ALBUMS = "GET_ALBUMS";
 export const SET_SELECTED = "SET_SELECTED";
 export const ADD_FAVORITES = "ADD_FAVORITES";
-export const ADD_ICON = "ADD_ICON";
+export const HEART_COLOR = "HEART_COLOR";
+export const LIKE_SONG = "LIKE_SONG";
 
 export const getSongs = (search) => {
   return async (dispatch, useState) => {
@@ -13,22 +14,27 @@ export const getSongs = (search) => {
         type: GET_ALBUMS,
         payload: albumsArray,
       });
-      dispatch({
-        type: ADD_ICON,
-        payload: true,
-      });
+      // dispatch({
+      //   type: ADD_ICON,
+      //   payload: true,
+      // });
 
       //console.log(data.data);
     }
   };
 };
 
-export const setSelected = (song) => {
+export const setSelected = (song, status) => {
   return async (dispatch, getState) => {
     dispatch({
       type: SET_SELECTED,
       payload: song,
     });
+    dispatch({
+      type: HEART_COLOR,
+      payload: false,
+    });
+    console.log(status);
   };
 };
 
@@ -39,7 +45,11 @@ export const addTofavorites = (clicked) => {
       payload: clicked,
     });
     dispatch({
-      type: ADD_ICON,
+      type: HEART_COLOR,
+      payload: true,
+    });
+    dispatch({
+      type: LIKE_SONG,
       payload: true,
     });
 

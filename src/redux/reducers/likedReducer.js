@@ -1,8 +1,9 @@
-import { ADD_FAVORITES, ADD_ICON } from "../actions";
+import { ADD_FAVORITES, ADD_ICON, HEART_COLOR, LIKE_SONG } from "../actions";
 
 const initialState = {
   content: [],
-  isLiked: false,
+  //isLiked: false,
+  heartColor: false,
 };
 
 export const likedReducer = (state = initialState, action) => {
@@ -14,11 +15,17 @@ export const likedReducer = (state = initialState, action) => {
         // let content2 = [...new Set([...state.content, action.payload])],
         content: [...state.content, action.payload].filter((elem, index) => [...state.content, action.payload].indexOf(elem) === index),
       };
-    case ADD_ICON:
+    case LIKE_SONG:
       return {
         ...state,
 
         isLiked: action.payload,
+      };
+
+    case HEART_COLOR:
+      return {
+        ...state,
+        heartColor: action.payload,
       };
 
     default:

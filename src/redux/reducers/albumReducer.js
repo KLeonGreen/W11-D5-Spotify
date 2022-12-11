@@ -13,12 +13,12 @@ export const albumReducer = (state = initialState, action) => {
         content: action.payload,
       };
 
-    case ADD_ICON:
-      return {
-        ...state,
+    // case ADD_ICON:
+    //   return {
+    //     ...state,
 
-        isLiked: action.payload,
-      };
+    //     isLiked: action.payload,
+    //   };
     default:
       return state;
   }
