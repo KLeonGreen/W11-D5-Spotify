@@ -1,4 +1,4 @@
-import { SET_ICON, SET_SELECTED, SHOW_ICON } from "../actions";
+import { SET_ICON, SET_SELECTED } from "../actions";
 
 const initialState = {
   content: {
@@ -10,8 +10,6 @@ const initialState = {
       cover_medium: "https://cdn.dribbble.com/users/702789/screenshots/16900790/media/628a8bb9f58f4feaea51367fc58b32a3.png?compress=1&resize=400x300&vertical=top",
     },
   },
-
-  iconColor: false,
 };
 
 export const selectedReducer = (state = initialState, action) => {
@@ -20,11 +18,6 @@ export const selectedReducer = (state = initialState, action) => {
       return {
         ...state,
         content: action.payload,
-      };
-    case SET_ICON:
-      return {
-        ...state,
-        iconColor: action.payload,
       };
 
     default:

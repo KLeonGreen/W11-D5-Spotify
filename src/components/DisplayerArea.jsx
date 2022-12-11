@@ -9,6 +9,7 @@ const DisplayerArea = () => {
   const albumArray = useSelector((state) => state.albums.content);
   const Liked = useSelector((state) => state.liked.content);
   const [value, setValue] = useState("");
+  // const [status, setStatus] = useState("");
   const dispatch = useDispatch();
 
   const combinedArray = albumArray.concat(Liked);
@@ -25,7 +26,7 @@ const DisplayerArea = () => {
   });
 
   // console.log(combinedArray);
-  console.log(uniqueArray);
+  // console.log(uniqueArray);
 
   const search = value ? value : "A";
 
@@ -59,7 +60,7 @@ const DisplayerArea = () => {
 
         <h2 id="title1">Shows you might like</h2>
         <Row className="mt-4 mb-2">
-          {uniqueArray.slice(0, 12).map((album) => (
+          {albumArray.slice(0, 24).map((album) => (
             <Albumcard album={album} key={album.id} />
           ))}
         </Row>

@@ -3,7 +3,7 @@ import { Card, Col } from "react-bootstrap";
 import { useDispatch, useSelector } from "react-redux";
 import { setSelected } from "../redux/actions";
 
-const ArtistCard = ({ album }) => {
+const ArtistCard = ({ album, status }) => {
   const selectedItem = useSelector((state) => state.selected.content);
   const dispatch = useDispatch();
   const [style, setStyle] = useState("");
