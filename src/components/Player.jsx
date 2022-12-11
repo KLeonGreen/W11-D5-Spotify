@@ -1,8 +1,9 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { addTofavorites } from "../redux/actions";
 
 const Player = () => {
+  const [isLiked, setIsLiked] = useState(false);
   const dispatch = useDispatch();
   const [filter, setFilter] = useState("");
 
@@ -15,6 +16,12 @@ const Player = () => {
       return song.id === alb.id ? true : false;
     });
   };
+
+  useEffect(() => {
+    Liked.map((song) => {
+      return song.id === selectedItem.id ? setIsLiked(true) : setIsLiked(false);
+    });
+  }, [selectedItem]);
 
   return (
     <div className="player-area">
@@ -33,7 +40,7 @@ const Player = () => {
             <div>
               <img
                 id="heart"
-                className={checkLiked(selectedItem) || iconColor ? "filter" : ""}
+                className={iconColor ? "filter" : ""}
                 //className={iconColor ? "filter" : ""}
                 style={{ cursor: "pointer" }}
                 src="./icons/heart.svg"

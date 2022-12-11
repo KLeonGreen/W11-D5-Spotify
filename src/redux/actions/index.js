@@ -32,7 +32,7 @@ export const setSelected = (song, status) => {
     });
     dispatch({
       type: HEART_COLOR,
-      payload: false,
+      payload: true,
     });
     console.log(status);
   };
