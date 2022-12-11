@@ -7,8 +7,25 @@ import Albumcard from "./Albumcard";
 
 const DisplayerArea = () => {
   const albumArray = useSelector((state) => state.albums.content);
+  const Liked = useSelector((state) => state.liked.content);
   const [value, setValue] = useState("");
   const dispatch = useDispatch();
+
+  const combinedArray = albumArray.concat(Liked);
+
+  const uniqueIDs = [];
+
+  const uniqueArray = combinedArray.filter((el) => {
+    const isDuplicate = uniqueIDs.includes(el.album.id);
+    if (!isDuplicate) {
+      uniqueIDs.push(el.album.id);
+      return true;
+    }
+    return false;
+  });
+
+  // console.log(combinedArray);
+  console.log(uniqueArray);
 
   const search = value ? value : "A";
 
@@ -42,14 +59,16 @@ const DisplayerArea = () => {
 
         <h2 id="title1">Shows you might like</h2>
         <Row className="mt-4 mb-2">
-          {albumArray.slice(0, 12).map((album) => (
-            <Albumcard album={album} key={album.album.id} />
+          {uniqueArray.slice(0, 12).map((album) => (
+            <Albumcard album={album} key={album.id} />
           ))}
         </Row>
+
+        {/* --------------------- */}
         <h2 id="title1">Shows you might like</h2>
         <Row className="artist-row">
-          {albumArray.slice(0, 12).map((album) => (
-            <ArtistCard album={album} key={album.album.id} />
+          {combinedArray.slice(0, 12).map((album) => (
+            <ArtistCard album={album} key={album.id} />
           ))}
         </Row>
       </Container>

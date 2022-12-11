@@ -4,25 +4,20 @@ import { useDispatch, useSelector } from "react-redux";
 import { setSelected } from "../redux/actions";
 
 const Albumcard = ({ album }) => {
-  const likedArray = useSelector((state) => state.liked.content);
+  const [show, setShow] = useState("hide");
+  const Liked = useSelector((state) => state.liked.content);
   const dispatch = useDispatch();
-  const [style, setStyle] = useState("");
 
-  const changeStyle = () => {
-    setStyle("selected-album");
-  };
-
-  console.log(likedArray);
+  console.log(Liked);
 
   return (
     <>
       <Col sm={6} md={4} lg={2}>
-        {likedArray.includes(album) ? (
+        {Liked.includes(album) ? (
           <Card
             className="card"
             onClick={() => {
               dispatch(setSelected(album));
-              changeStyle();
             }}
           >
             <div className="play-on-hover">
@@ -33,7 +28,7 @@ const Albumcard = ({ album }) => {
             <Card.Body>
               <h6 className="card-title">
                 {album.album.title}
-                <img src="./icons/green-heart.svg" alt="" className="liked" />
+                <img src="./icons/green-heart.svg" alt="" className="liked" id="show" />
               </h6>
               <p className="card-text">{album.artist.name}</p>
               <p className="card-text">{album.album.type}</p>
@@ -44,7 +39,6 @@ const Albumcard = ({ album }) => {
             className="card"
             onClick={() => {
               dispatch(setSelected(album));
-              changeStyle();
             }}
           >
             <div className="play-on-hover">
@@ -53,7 +47,10 @@ const Albumcard = ({ album }) => {
 
             <Card.Img variant="top" src={album.album.cover_medium} />
             <Card.Body>
-              <h6 className="card-title">{album.album.title}</h6>
+              <h6 className="card-title">
+                {album.album.title}
+                <img src="./icons/green-heart.svg" alt="" className="liked" id={show} />
+              </h6>
               <p className="card-text">{album.artist.name}</p>
               <p className="card-text">{album.album.type}</p>
             </Card.Body>

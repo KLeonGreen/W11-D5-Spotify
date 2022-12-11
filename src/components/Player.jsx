@@ -1,10 +1,13 @@
+import { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { addTofavorites } from "../redux/actions";
 
 const Player = () => {
   const dispatch = useDispatch();
+  const [filter, setFilter] = useState("");
 
   const selectedItem = useSelector((state) => state.selected.content);
+  const iconColor = useSelector((state) => state.selected.iconColor);
 
   return (
     <div className="player-area">
@@ -22,10 +25,14 @@ const Player = () => {
             </div>
             <div>
               <img
-                src="./icons/green-heart.svg"
+                id="heart"
+                className={iconColor ? "filter" : ""}
+                style={{ cursor: "pointer" }}
+                src="./icons/heart.svg"
                 alt=""
                 onClick={() => {
                   dispatch(addTofavorites(selectedItem));
+                  // setFilter("filter");
                 }}
               />
             </div>

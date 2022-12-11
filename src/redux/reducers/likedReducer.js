@@ -1,4 +1,4 @@
-import { ADD_FAVORITES } from "../actions";
+import { ADD_FAVORITES, SHOW_ICON } from "../actions";
 
 const initialState = {
   content: [],

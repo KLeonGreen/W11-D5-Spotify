@@ -1,6 +1,7 @@
 export const GET_ALBUMS = "GET_ALBUMS";
 export const SET_SELECTED = "SET_SELECTED";
 export const ADD_FAVORITES = "ADD_FAVORITES";
+export const SET_ICON = "SET_ICON";
 
 export const getSongs = (search) => {
   return async (dispatch, useState) => {
@@ -12,6 +13,7 @@ export const getSongs = (search) => {
         type: GET_ALBUMS,
         payload: albumsArray,
       });
+
       //console.log(data.data);
     }
   };
@@ -23,7 +25,10 @@ export const setSelected = (song) => {
       type: SET_SELECTED,
       payload: song,
     });
-    //console.log(song);
+    dispatch({
+      type: SET_ICON,
+      payload: false,
+    });
   };
 };
 
@@ -32,6 +37,10 @@ export const addTofavorites = (clicked) => {
     dispatch({
       type: ADD_FAVORITES,
       payload: clicked,
+    });
+    dispatch({
+      type: SET_ICON,
+      payload: true,
     });
 
     //console.log(clicked);
